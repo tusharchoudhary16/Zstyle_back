@@ -1,16 +1,9 @@
 package com.zstyle.backend.entity;
 
-import lombok.*;
 import jakarta.persistence.*;
 
-@Data
 @Entity
-@Getter
-@Setter
-@NoArgsConstructor
-
 @Table(name = "order_items")
-
 public class OrderItem {
 
     @Id
@@ -23,8 +16,15 @@ public class OrderItem {
 
     private Integer quantity;
 
+    // REQUIRED EMPTY CONSTRUCTOR
+    public OrderItem() {
+    }
 
-    public OrderItem(Long id, Long orderId, Long productId, Integer quantity) {
+    public OrderItem(Long id,
+                     Long orderId,
+                     Long productId,
+                     Integer quantity) {
+
         this.id = id;
         this.orderId = orderId;
         this.productId = productId;
@@ -35,28 +35,28 @@ public class OrderItem {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public Long getOrderId() {
         return orderId;
-    }
-
-    public void setOrderId(Long orderId) {
-        this.orderId = orderId;
     }
 
     public Long getProductId() {
         return productId;
     }
 
-    public void setProductId(Long productId) {
-        this.productId = productId;
-    }
-
     public Integer getQuantity() {
         return quantity;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setOrderId(Long orderId) {
+        this.orderId = orderId;
+    }
+
+    public void setProductId(Long productId) {
+        this.productId = productId;
     }
 
     public void setQuantity(Integer quantity) {
